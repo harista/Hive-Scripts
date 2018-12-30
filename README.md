@@ -98,5 +98,27 @@ John F Kennedy International	12.093309509628748
 </code>
 </pre>
 
+* Will write another script which can find which airport had highest number of flights departed. 
 
+<pre>
+<code>
+SELECT name, COUNT(f.origin) AS totalcount
+FROM flight_info f INNER JOIN airports a ON (f.origin=a.code)
+GROUP BY name
+ORDER BY totalcount
+DESC;
 
+Result:
+
+name	                                      totalcount
+Hartsfield-Jackson Atlanta International	  414513
+Chicago O'hare International	              350380
+Dallas/Fort Worth International	            281281
+Denver International	                      241443
+Los Angeles International	                  215608
+Phoenix Sky Harbor International Airport	  199408
+George Bush Intercontinental	              185172
+Mc Carran International	                    172876
+Detroit Metropolitan Wayne County	          161989
+</code>
+</pre>
